@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cenotium"
+version = "0.1.0"
+description = "Agentic Browser Automation Framework"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+keywords = ["ai", "agents", "browser", "automation", "llm"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "flask>=3.0.0",
+    "flask-cors>=4.0.0",
+    "langchain>=0.1.0",
+    "langchain-openai>=0.0.5",
+    "langgraph>=0.0.20",
+    "openai>=1.0.0",
+    "anthropic>=0.18.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "redis>=5.0.0",
+    "cryptography>=42.0.0",
+    "requests>=2.31.0",
+    "numpy>=1.24.0",
+    "Pillow>=10.0.0",
+    "twilio>=9.0.0",
+    "gradio-client>=0.10.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.1.0",
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+]
+browser = [
+    "PyQt5>=5.15.0",
+    "opencv-python>=4.8.0",
+]
+ui = [
+    "streamlit>=1.30.0",
+    "streamlit-option-menu>=0.3.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/abhipi/cenotium"
+Repository = "https://github.com/abhipi/cenotium"
+
+[project.scripts]
+cenotium-compiler = "servers.compiler:main"
+cenotium-orchestrator = "servers.orchestrator:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["cenotium"]
+

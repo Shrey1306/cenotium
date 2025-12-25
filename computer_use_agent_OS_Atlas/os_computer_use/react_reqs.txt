@@ -1,4 +1,0 @@
-langgraph==0.2.55
-langchain-community==0.2.19
-langchain-openai==0.1.25
-loguru
